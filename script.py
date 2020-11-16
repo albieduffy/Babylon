@@ -1,5 +1,6 @@
-def conversion():
-    user_input = input('Please input the desired conversion (X cm/m in cm/m): ')
+user_input = input('Please input the desired conversion (X cm/m in cm/m): ')
+
+def conversion(user_input):
     try:
         user_input = user_input.split()
         from_unit = user_input[1]
@@ -12,7 +13,10 @@ def conversion():
             return print(str(value * 100) + 'cm')
 
     except:
-        print('Please request a valid conversion')
-        conversion()
+        new_input = input('Please request a valid conversion: ')
+        conversion(new_input)
 
-conversion()
+conversion(user_input)
+
+
+@app.route('/conversion/?value=5&from=cm&to=m'):
